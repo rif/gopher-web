@@ -1,0 +1,370 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"F",
+				"FormValue	string ƒ"
+			],
+			[
+				"New",
+				"NewEncoder	*json.Encoder ƒ"
+			],
+			[
+				"che",
+				"checkReferer	bool ƒ"
+			],
+			[
+				"P",
+				"Print	 ƒ"
+			],
+			[
+				"tim",
+				"timespans	 package ρ"
+			],
+			[
+				"Parse",
+				"ParseDuration	time.Duration, error ƒ"
+			],
+			[
+				"S",
+				"SYSTEM_ERROR	 Ɩ"
+			],
+			[
+				"av",
+				"availableCredit	 ν"
+			],
+			[
+				"ava",
+				"availableSeconds	 ν"
+			],
+			[
+				"Spr",
+				"Sprintf	string ƒ"
+			],
+			[
+				"G",
+				"GetUserBalanceKey	string ƒ"
+			],
+			[
+				"PA",
+				"PARK_TIME	 Ɩ"
+			],
+			[
+				"IN_MOVE_",
+				"IN_MOVED_TO	 Ɩ"
+			],
+			[
+				"Pa",
+				"ParseDuration	time.Duration, error ƒ"
+			],
+			[
+				"N",
+				"NewTimer	*time.Timer ƒ"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/GoSublime/GsShell.sublime-build",
+	"command_palette":
+	{
+		"height": 51.0,
+		"selected_items":
+		[
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"add",
+				"Package Control: Add Repository"
+			],
+			[
+				"instal",
+				"GoSublime: Install/Update MarGo and Gocode"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/rif/.config/sublime-text-2/Packages/GoSublime/CHANGELOG.md",
+		"/home/rif/Documents/webframeworks/varfuri/app.yaml",
+		"/home/rif/Documents/webframeworks/varfuri/app/templates/base.html",
+		"/home/rif/Documents/webframeworks/varfuri/app/templates/contact.html",
+		"/home/rif/Documents/webframeworks/varfuri/maps/maps.go",
+		"/home/rif/Documents/webframeworks/varfuri/app/sass/app.sass",
+		"/home/rif/Documents/webframeworks/varfuri/app/templates/index.html",
+		"/home/rif/Documents/webframeworks/varfuri/app/templates/harta.html",
+		"/home/rif/Documents/webframeworks/varfuri/app/lib/angular/angular-sanitize.min.js",
+		"/home/rif/Documents/webframeworks/varfuri/app/js/services.js",
+		"/home/rif/Documents/webframeworks/varfuri/app/js/controllers.js",
+		"/home/rif/Documents/webframeworks/varfuri/app/js/app.js",
+		"/home/rif/Documents/webframeworks/varfuri/app/config.rb",
+		"/home/rif/Documents/webframeworks/varfuri/app/css/app.css",
+		"/home/rif/Documents/webframeworks/varfuri/app/index.html",
+		"/home/rif/Documents/webframeworks/varfuri/app/index_ang.html",
+		"/home/rif/Documents/webframeworks/varfuri/templates/base.html",
+		"/home/rif/Documents/webframeworks/varfuri/css/screen.css",
+		"/home/rif/Documents/webframeworks/varfuri/css/print.css",
+		"/home/rif/Documents/webframeworks/varfuri/css/ie.css",
+		"/home/rif/Documents/webframeworks/varfuri/js/tjpzoom.js",
+		"/run/user/1000/gvfs/sftp:host=bored/home/radu/www/htdocs/seeme/atlas/storage.py",
+		"/home/rif/Documents/webframeworks/talkexperience/sonicalabs/applications/init/static/sass/screen.sass",
+		"/home/rif/Documents/webframeworks/talkexperience/sonicalabs/applications/init/views/default/details.html",
+		"/home/rif/Documents/webframeworks/talkexperience/sonicalabs/applications/init/views/layout.html",
+		"/home/rif/Documents/webframeworks/talkexperience/sonicalabs/applications/init/views/default/search.html",
+		"/home/rif/Documents/webframeworks/talkexperience/sonicalabs/app.yaml",
+		"/home/rif/Documents/webframeworks/talkexperience/sonicablobs/app.yaml",
+		"/home/rif/Documents/webframeworks/talkexperience/sonicalabs/applications/init/views/default/record.html",
+		"/home/rif/Documents/webframeworks/talkexperience/sonicalabs/applications/init/static/js/recorder.js",
+		"/home/rif/Documents/webframeworks/talkexperience/sonicadrone/sonicadrone.go",
+		"/home/rif/Documents/webframeworks/talkexperience/sonicalabs/applications/init/controllers/default.py",
+		"/home/rif/Documents/webframeworks/talkexperience/sonicalabs/applications/init/cron/crontab.example",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/mediator/mediator.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/sessionmanager/fssessionmanager.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/sessionmanager/fsevent.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/sessionmanager/event.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/sessionmanager/session.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/sessionmanager/sessiondelegate.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/timespans/activationperiod.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/sessionmanager/sessionmanager.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/timespans/calldesc.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/timespans/responder.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/cmd/cgr-rater/cgr-rater.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/cmd/cgr-rater/rater_test.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/conf/mediator.config",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/sessionmanager/session_test.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/timespans/storage_redis.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/importer.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/data/Destinations.csv",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/timespans/destinations.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/timespans/destinations_test.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/cmd/cgr-rater/registration.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/scheduler/scheduler.go",
+		"/home/rif/Documents/prog/go/src/github.com/cgrates/cgrates/inotify/inotify_linux_test.go"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			";",
+			"}",
+			"{",
+			"animate",
+			";",
+			"}",
+			"{",
+			";",
+			"}",
+			"{",
+			"&MapImage",
+			"		\"",
+			"templates",
+			"storage",
+			"videoImage",
+			"Storage",
+			"detail_sound",
+			"}}\",",
+			"Amoun",
+			"CHANNEL_PARK",
+			"eventBits",
+			"ModePerm"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.GoSublime-main-output":
+	{
+		"height": 100.0
+	},
+	"output.exec":
+	{
+		"height": 112.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"scr",
+				"sonicalabs/applications/init/static/sass/screen.sass"
+			],
+			[
+				"app",
+				"sonicablobs/app.yaml"
+			],
+			[
+				"detail",
+				"sonicalabs/applications/init/views/default/details.html"
+			],
+			[
+				"lay",
+				"sonicalabs/applications/init/views/layout.html"
+			],
+			[
+				"cgr",
+				"cmd/cgr-rater/cgr-rater.go"
+			],
+			[
+				"resp",
+				"timespans/responder.go"
+			],
+			[
+				"des",
+				"timespans/destinations_test.go"
+			],
+			[
+				"callde",
+				"timespans/calldesc.go"
+			],
+			[
+				"dest",
+				"timespans/destinations.go"
+			],
+			[
+				"activa",
+				"timespans/activationperiod.go"
+			],
+			[
+				"im",
+				"importer.go"
+			],
+			[
+				"res",
+				"timespans/responder.go"
+			],
+			[
+				"acti",
+				"timespans/activationperiod.go"
+			],
+			[
+				"reg",
+				"cmd/cgr-rater/registration.go"
+			],
+			[
+				"sch",
+				"scheduler/scheduler.go"
+			],
+			[
+				"cgr-",
+				"cmd/cgr-rater/cgr-rater.go"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 255.0,
+	"status_bar_visible": true
+}
