@@ -3,8 +3,8 @@
 /* Filters */
 
 angular.module('gopher.filters', []).
-  filter('interpolate', ['version', function(version) {
+  filter('urlencode', [function() {
     return function(text) {
-      return String(text).replace(/\%VERSION\%/mg, version);
+      return encodeURIComponent(text);
     }
   }]);

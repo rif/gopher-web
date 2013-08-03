@@ -9,7 +9,6 @@ angular.module('gopher.services', ['ngResource']).
     value('version', '0.1').
     factory('Package', function ($resource) {
         return $resource('/api/query', {}, {
-            query: {method: 'GET', params: {packageId: ''}, isArray: true},
-            get: {method: 'GET', isArray: true}
+            query: {method: 'GET', params: {packageId: '*'}, isArray: true},
         });
     });
