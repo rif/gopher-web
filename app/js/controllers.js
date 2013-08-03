@@ -7,7 +7,7 @@ angular.module('gopher.controllers', ['gopher.services']).
         $scope.packages = Package.query();
     }])
     .controller('PackageCtrl', ['$scope', 'Package', '$routeParams', function ($scope, Package, $routeParams) {
-        Package.get({packageId: $routeParams.packageId}, function (pack) {
+        Package.get({repo: $routeParams.repo}, function (pack) {
                 $scope.pack = pack;
         });
     }]);

@@ -1,4 +1,13 @@
+<h3>Packages</h3>
+
 <input type="text" id="filter" placeholder="Search for package" ng-model="packageFilter"/>
-<ul id="package-list">
-    <li ng-repeat="package in packages| filter:packageFilter" ng-animate=" 'animate' "><a href="#/package/{{package.Id}}">{{package.Name}}</a></li>
-</ul>
+
+<table id="package-table">
+  <tbody>
+    <tr ng-repeat="package in packages| filter:packageFilter | limitTo: 50">
+      <td><a href="#/package/{{package.Repo}}">{{package.Name}}</a></td>
+      <td><a href="http://{{package.Repo}}" target="_blank">{{package.Repo}}</a></td>
+      <td>{{package.Description}}</td>
+    </tr>
+  </tbody>
+</table>

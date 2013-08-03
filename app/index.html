@@ -16,55 +16,45 @@
 </head>
 <body>
 
-<div class="row">
-    <div class="large-12 columns">
-        <h2>Welcome Golang package repository</h2>
-        <hr/>
-    </div>
-</div>
-
-<div class="row">
-    <div class="large-8 columns">
-        <h3>Packages</h3>
-
-        <!-- Grid Example -->
-        <div class="row">
-            <div class="large-12 columns">
-                <div class="panel">
-
-                    <div ng-view></div>
-
-                </div>
-            </div>
+    <div class="row">
+        <div class="large-12 columns">
+            <h2>Welcome to Go package repository</h2>
+            <hr/>
         </div>
     </div>
 
-    <div class="large-4 columns">
-        <h4>Getting Started</h4>
+    <div class="row">
+        <div class="large-9 columns">
+            <!-- Grid Example -->
+            <div class="row">
+                <div class="large-12 columns">
+                    <div class="panel">
 
-        <p>We're stoked you want to try Foundation! To get going, this file (index.html) includes some basic styles you
-            can modify, play around with, or totally destroy to get going.</p>
+                        <div ng-view></div>
 
-        <h4>Other Resources</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <p>Once you've exhausted the fun in this document, you should check out:</p>
-        <ul class="disc">
-            <li><a href="http://foundation.zurb.com/docs">Foundation Documentation</a><br/>Everything you need to know
-                about using the framework.
-            </li>
-            <li><a href="http://github.com/zurb/foundation">Foundation on Github</a><br/>Latest code, issue reports,
-                feature requests and more.
-            </li>
-            <li><a href="http://twitter.com/foundationzurb">@foundationzurb</a><br/>Ping us on Twitter if you have
-                questions. If you build something with this we'd love to see it (and send you a totally boss sticker).
-            </li>
-        </ul>
+        <div class="large-3 columns">
+            <h4>How it works</h4>
+
+            <p>Anybody can request <a href="#/add">adding</a> (works for update too) or <a href="#/remove">removing</a> of packages. All valid packages are accepted.</p>
+            <p>There is also a <a href="http://github.com/rif/gopher">command line tool</a> for searching and installing packages:
+                <div class="radius secondary label">
+                    go get github.com/rif/gopher
+                </div>
+            </a>
+
+            <h4>Other Resources</h4>
+            <ul class="no-bullet">
+                <li><a href="http://golang.org/pkg/">Standard packages docs</a></li>
+                <li><a href="http://code.google.com/p/go-wiki/wiki/Projects">go-wiki project listing</a></li>
+                <li><a href="http://www.gonuts.io/">gonuts.io</a></li>
+            </ul>
+        </div>
     </div>
-</div>
-
-<footer>
-    <div>Angular seed app: v<span app-version></span></div>
-</footer>
 
 <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
@@ -79,9 +69,9 @@
 <script src="js/directives.js"></script>
 
 <script>
-    document.write('<script src=' +
-            ('__proto__' in {} ? 'lib/vendor/zepto' : 'lib/vendor/jquery') +
-            '.js><\/script>')
+document.write('<script src=' +
+    ('__proto__' in {} ? 'lib/vendor/zepto' : 'lib/vendor/jquery') +
+    '.js><\/script>')
 </script>
 
 <script src="lib/foundation/foundation.js"></script>
@@ -102,7 +92,8 @@
 <script src="lib/foundation/foundation.topbar.js"></script>-->
 
 <script>
-    $(document).foundation();
+$(document).foundation();
+$("#filter").focus();
 </script>
 </body>
 </html>

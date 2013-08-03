@@ -4,14 +4,12 @@ import (
 	"appengine"
 	"appengine/datastore"
 	"appengine/memcache"
-	"crypto/md5"
 	"encoding/json"
 	"fmt"
 	"net/http"
 )
 
 type Package struct {
-	Id          string
 	Name        string
 	Repo        string
 	Description string
@@ -39,12 +37,12 @@ func init() {
 
 func query(w http.ResponseWriter, r *http.Request) {
 	c := appengine.NewContext(r)
-	id := r.FormValue("packageId")
+	id := r.FormValue("repo")
 	var jsonResult []byte
 	if item, err := memcache.Get(c, id); err == memcache.ErrCacheMiss {
 		q := datastore.NewQuery("Package").Filter("Accepted =", true)
-		if id != "*" {
-			q.Filter("Id =", id)
+		if id != "all" {
+			q.Filter("Repo =", id)
 		}
 		q.Order("Name")
 		var packages []Package
@@ -53,7 +51,7 @@ func query(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		var result interface{}
-		if id != "*" && len(packages) > 0 {
+		if id != "all" && len(packages) > 0 {
 			result = packages[0]
 		} else {
 			result = packages
@@ -75,7 +73,6 @@ func add(w http.ResponseWriter, r *http.Request) {
 	p := Package{
 		Name:        r.FormValue("name"),
 		Repo:        r.FormValue("repo"),
-		Id:          sha1sum(r.FormValue("repo")),
 		Description: r.FormValue("description"),
 		Accepted:    false,
 	}
@@ -98,10 +95,4 @@ func remove(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	http.Redirect(w, r, "/", http.StatusFound)
-}
-
-func sha1sum(text string) string {
-	h := md5.New()
-	h.Write([]byte(text))
-	return fmt.Sprintf("%x", h.Sum(nil))
 }
