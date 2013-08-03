@@ -1,0 +1,52 @@
+/*
+Syntax error: File to import not found or unreadable: compass/typography/lists.
+              Load path: /home/rif/Documents/webframeworks/gopher-web/app/sass
+        on line 1 of app.sass
+
+1: @import "compass/typography/lists"
+2: 
+3: // Global Foundation Settings
+4: @import settings
+5: @import normalize
+6: 
+
+Backtrace:
+app.sass:1
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/import_node.rb:67:in `rescue in import'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/import_node.rb:45:in `import'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/import_node.rb:28:in `imported_file'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/import_node.rb:37:in `css_import?'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:217:in `visit_import'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `visit'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:53:in `map'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:53:in `visit_children'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `block in visit'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:128:in `visit_root'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/base.rb:37:in `visit'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:100:in `visit'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/visitors/perform.rb:7:in `visit'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/tree/root_node.rb:20:in `render'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/engine.rb:315:in `_render'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/engine.rb:262:in `render'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:362:in `update_stylesheet'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:201:in `each'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/plugin.rb:81:in `update_stylesheets'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/exec.rb:435:in `watch_or_update'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/exec.rb:318:in `process_result'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/exec.rb:41:in `parse'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/lib/sass/exec.rb:21:in `parse!'
+/home/rif/.gem/ruby/2.0.0/gems/sass-3.2.10/bin/sass:9:in `<top (required)>'
+/home/rif/.gem/ruby/2.0.0/bin/sass:23:in `load'
+/home/rif/.gem/ruby/2.0.0/bin/sass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Syntax error: File to import not found or unreadable: compass/typography/lists.\A               Load path: /home/rif/Documents/webframeworks/gopher-web/app/sass\A         on line 1 of app.sass\A \A 1: @import \"compass/typography/lists\"\A 2: \A 3: // Global Foundation Settings\A 4: @import settings\A 5: @import normalize\A 6: "; }

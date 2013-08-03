@@ -12,6 +12,20 @@ type Package struct {
 	Name        string
 	Url         string
 	Description string
+	Accepted    bool
+}
+
+type UpdateRequest struct {
+	Name        string
+	Url         string
+	Description string
+	Accepted    bool
+}
+
+type RemoveRequest struct {
+	Url      string
+	Reason   string
+	Accepted bool
 }
 
 func init() {
@@ -22,7 +36,12 @@ func init() {
 
 func query(w http.ResponseWriter, r *http.Request) {
 	c := appengine.NewContext(r)
-	q := datastore.NewQuery("Package").Order("Name")
+	id := r.FormValue("packageId")
+	q := datastore.NewQuery("Package")//.Filter("Accepted =", true)
+	if id != "" {
+	    q.Filter("Name =", id)
+	}
+	q.Order("Name")
 	var packages []Package
 	if _, err := q.GetAll(c, &packages); err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -36,12 +55,13 @@ func query(w http.ResponseWriter, r *http.Request) {
 
 func add(w http.ResponseWriter, r *http.Request) {
 	c := appengine.NewContext(r)
-	g := Package{
+	p := Package{
 		Name:        r.FormValue("name"),
 		Url:         r.FormValue("url"),
 		Description: r.FormValue("description"),
+		Accepted:    false,
 	}
-	_, err := datastore.Put(c, datastore.NewIncompleteKey(c, "Package", nil), &g)
+	_, err := datastore.Put(c, datastore.NewIncompleteKey(c, "Package", nil), &p)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
