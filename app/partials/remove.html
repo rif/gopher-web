@@ -1,0 +1,20 @@
+<form>
+	<fieldset>
+		<legend>Remove package request</legend>
+
+		<div class="row">
+			<div class="large-12 columns">
+				<input type="text" placeholder="Repo path" ng-model="pkg.repo" required/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				<input type="text" placeholder="Reason for removal request" ng-model="pkg.reason" required/>
+			</div>
+		</div>
+		<div>
+			<button ng-click="removePackage(pkg)">Submit request</button>
+			<span class="alert-box secondary" ng-show="removeResponse !== ''"> {{removeResponse}}</span>
+		</div>
+	</fieldset>
+</form>
