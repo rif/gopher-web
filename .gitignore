@@ -3,3 +3,4 @@ logs/*
 .sass-cache
 *sublime*
 .idea
+nbproject

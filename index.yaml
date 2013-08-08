@@ -13,6 +13,17 @@ indexes:
 - kind: Package
   properties:
   - name: Accepted
+  - name: Added
+
+- kind: Package
+  properties:
+  - name: Accepted
+  - name: Added
+    direction: desc
+
+- kind: Package
+  properties:
+  - name: Accepted
   - name: Name
 
 - kind: Package

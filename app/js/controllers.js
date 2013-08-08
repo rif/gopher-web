@@ -13,14 +13,14 @@ angular.module('gopher.controllers', ['gopher.services'])
     }])
     .controller('AddCtrl', ['$scope', 'Package', function ($scope, Package) {
     	$scope.addPackage = function(pkg){
-    		Package.save({name: pkg.name, repo: pkg.repo, description: pkg.description}, function(response){
-                window.location.assign("#/");
+    		Package.save(pkg, function(response){
+                window.location.assign("#/"); // TODO: some flash thing
     		});
     	}
     }])
     .controller('RemoveCtrl', ['$scope','Package', function ($scope, Package)  {
         $scope.removePackage = function(pkg){
-            Package.remove({repo: pkg.repo, reason: pkg.reason}, function(response){
+            Package.remove(pkg, function(response){
                 $scope.removeResponse = response;
             });
         }

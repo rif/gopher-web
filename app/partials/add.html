@@ -17,6 +17,12 @@
 				<input type="text" placeholder="Description" ng-model="pkg.description" required/>
 			</div>
 		</div>
+		<div class="row">
+			<div class="large-12 columns">
+				<label for="islibrary">Is Library?</label><input type="checkbox" id="islibrary" ng-model="pkg.islibrary"/>
+				<input type="text" placeholder="Category" ng-model="pkg.category"/>
+			</div>
+		</div>
 		<div>
 			<button ng-click="addPackage(pkg)">Sumbit add request</button>
 		</div>

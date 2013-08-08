@@ -4,92 +4,88 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js" lang="en" ng-app="gopher"> <!--<![endif]-->
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Gopher</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Gopher</title>
+        <link rel="stylesheet" href="css/app.css">
+    </head>
+    <body>
 
-
-    <link rel="stylesheet" href="css/app.css">
-    <script src="lib/vendor/custom.modernizr.js"></script>
-
-</head>
-<body>
-
-    <div class="row">
-        <div class="large-12 columns">
-            <h2><a href="#/">Go package repository</a></h2>
-            <hr/>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="large-9 columns">
-            <!-- Grid Example -->
-            <div class="row">
-                <div class="large-12 columns">
-                    <div ng-view></div>            
-                </div>
+        <div class="row">
+            <div class="large-12 columns">
+                <h2><a href="#/">Go package repository</a></h2>
+                <hr/>
             </div>
         </div>
 
-        <div class="large-3 columns">
-            <h4>How it works</h4>
+        <div class="row">
+            <div class="large-9 columns">
+                <!-- Grid Example -->
+                <div class="row">
+                    <div class="large-12 columns">
+                        <div ng-view></div>            
+                    </div>
+                </div>
+            </div>
 
-            <p>Anybody can request <a href="#/add">adding</a> (works for update too) or <a href="#/remove">removing</a> of packages. All valid packages are accepted.</p>
-            <p>There is also a <a href="http://github.com/rif/gopher">command line tool</a> for searching and installing packages:
+            <div class="large-3 columns">
+                <h4>How it works</h4>
+
+                <p>Anybody can request <a href="#/add">adding</a> (works for update too) or <a href="#/remove">removing</a> of packages. All valid packages are accepted.</p>
+                <p>There is also a <a href="http://github.com/rif/gopher">command line tool</a> for searching and installing packages:
                 <div class="radius secondary label">
                     go get github.com/rif/gopher
                 </div>
-            </a>
+                </a>
 
-            <h4>Other Resources</h4>
-            <ul class="no-bullet">
-                <li><a href="http://golang.org/pkg/">Standard packages docs</a></li>
-                <li><a href="http://code.google.com/p/go-wiki/wiki/Projects">go-wiki project listing</a></li>
-                <li><a href="http://www.gonuts.io/">gonuts.io</a></li>
-            </ul>
+                <h4>Other Resources</h4>
+                <ul class="no-bullet">
+                    <li><a href="http://golang.org/pkg/">Standard packages docs</a></li>
+                    <li><a href="http://code.google.com/p/go-wiki/wiki/Projects">go-wiki project listing</a></li>
+                    <li><a href="http://www.gonuts.io/">gonuts.io</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
+        
+        <!-- In production use:
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+        -->
 
-<!-- In production use:
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
--->
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/angular/angular-resource.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/services.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/filters.js"></script>
+        <script src="js/directives.js"></script>
 
-<script src="lib/angular/angular.js"></script>
-<script src="lib/angular/angular-resource.js"></script>
-<script src="js/app.js"></script>
-<script src="js/services.js"></script>
-<script src="js/controllers.js"></script>
-<script src="js/filters.js"></script>
-<script src="js/directives.js"></script>
+        <script>
+            document.write('<script src=' +
+                    ('__proto__' in {} ? 'lib/vendor/zepto' : 'lib/vendor/jquery') +
+                    '.js><\/script>')
+        </script>
 
-<script>
-document.write('<script src=' +
-    ('__proto__' in {} ? 'lib/vendor/zepto' : 'lib/vendor/jquery') +
-    '.js><\/script>')
-</script>
+        <script src="lib/foundation/foundation.js"></script>
+        <!--<script src="lib/foundation/foundation.abide.js"></script>
+        <script src="lib/foundation/foundation.alerts.js"></script>
+        <script src="lib/foundation/foundation.clearing.js"></script>
+        <script src="lib/foundation/foundation.cookie.js"></script>
+        <script src="lib/foundation/foundation.dropdown.js"></script>
+        <script src="lib/foundation/foundation.forms.js"></script>
+        <script src="lib/foundation/foundation.interchange.js"></script>
+        <script src="lib/foundation/foundation.joyride.js"></script>
+        <script src="lib/foundation/foundation.magellan.js"></script>
+        <script src="lib/foundation/foundation.orbit.js"></script>
+        <script src="lib/foundation/foundation.placeholder.js"></script>
+        <script src="lib/foundation/foundation.reveal.js"></script>
+        <script src="lib/foundation/foundation.section.js"></script>
+        <script src="lib/foundation/foundation.tooltips.js"></script>
+        <script src="lib/foundation/foundation.topbar.js"></script>-->
 
-<script src="lib/foundation/foundation.js"></script>
-<!--<script src="lib/foundation/foundation.abide.js"></script>
-<script src="lib/foundation/foundation.alerts.js"></script>
-<script src="lib/foundation/foundation.clearing.js"></script>
-<script src="lib/foundation/foundation.cookie.js"></script>
-<script src="lib/foundation/foundation.dropdown.js"></script>
-<script src="lib/foundation/foundation.forms.js"></script>
-<script src="lib/foundation/foundation.interchange.js"></script>
-<script src="lib/foundation/foundation.joyride.js"></script>
-<script src="lib/foundation/foundation.magellan.js"></script>
-<script src="lib/foundation/foundation.orbit.js"></script>
-<script src="lib/foundation/foundation.placeholder.js"></script>
-<script src="lib/foundation/foundation.reveal.js"></script>
-<script src="lib/foundation/foundation.section.js"></script>
-<script src="lib/foundation/foundation.tooltips.js"></script>
-<script src="lib/foundation/foundation.topbar.js"></script>-->
-
-<script>
-$(document).foundation();
-$("#filter").focus();
-</script>
-</body>
+        <script>
+            $(document).foundation();
+            $("#filter").focus();
+        </script>
+    </body>
 </html>
