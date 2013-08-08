@@ -13,6 +13,7 @@ import (
 
 const (
 	ALL_QUERY = "all"
+	CAT       = "cat"
 )
 
 type Package struct {
@@ -33,12 +34,13 @@ type RemoveRequest struct {
 
 func init() {
 	http.HandleFunc("/api/pkg", pkg)
+	http.HandleFunc("/api/cat", cat)
 }
 
 func pkg(w http.ResponseWriter, r *http.Request) {
+	c := appengine.NewContext(r)
 	switch r.Method {
 	case "GET":
-		c := appengine.NewContext(r)
 		id := r.FormValue("repo")
 		var jsonResult []byte
 		if item, err := memcache.Get(c, id); err == memcache.ErrCacheMiss {
@@ -68,7 +70,6 @@ func pkg(w http.ResponseWriter, r *http.Request) {
 		}
 		fmt.Fprint(w, string(jsonResult))
 	case "POST":
-		c := appengine.NewContext(r)
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -86,7 +87,6 @@ func pkg(w http.ResponseWriter, r *http.Request) {
 		}
 		fmt.Fprint(w, `{"status": "ok"}`)
 	case "DELETE":
-		c := appengine.NewContext(r)
 		rr := &RemoveRequest{
 			Repo:   r.FormValue("repo"),
 			Reason: r.FormValue("reason"),
@@ -98,4 +98,32 @@ func pkg(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprint(w, `{"status": "ok"}`)
 	}
 
+}
+
+func cat(w http.ResponseWriter, r *http.Request) {
+	c := appengine.NewContext(r)
+	switch r.Method {
+	case "GET":
+		var jsonResult []byte
+		if item, err := memcache.Get(c, CAT); err == memcache.ErrCacheMiss {
+			q := datastore.NewQuery("Package").Filter("Accepted =", true)
+			var packages []*Package
+			if _, err := q.GetAll(c, &packages); err != nil {
+				http.Error(w, err.Error(), http.StatusInternalServerError)
+				return
+			}
+			categories := make(map[string]int)
+			for _, pkg := range packages {
+				categories[pkg.Category] += 1
+			}
+			if jsonResult, err = json.Marshal(categories); err != nil {
+				http.Error(w, err.Error(), http.StatusInternalServerError)
+				return
+			}
+			memcache.Add(c, &memcache.Item{Key: CAT, Value: jsonResult})
+		} else {
+			jsonResult = item.Value
+		}
+		fmt.Fprint(w, string(jsonResult))
+	}
 }
