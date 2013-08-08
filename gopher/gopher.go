@@ -26,6 +26,7 @@ type Package struct {
 	Category    string
 	Accepted    bool
 	Added       time.Time
+	Updated     time.Time
 }
 
 type RemoveRequest struct {
@@ -82,7 +83,7 @@ func pkg(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		defer r.Body.Close()
-		p := &Package{Added: time.Now()}
+		p := &Package{Added: time.Now(), Updated: time.Now()}
 		if err := json.Unmarshal(body, p); err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
@@ -172,11 +173,46 @@ func accept(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-	pkg.Accepted = true
-	_, err = datastore.Put(c, key, pkg)
+	// check if the package is already present
+	acceptQuery := datastore.NewQuery("Package").
+		Filter("Accepted =", true).
+		Filter("Repo =", pkg.Repo)
+
+	var packages []*Package
+	keys, err := acceptQuery.GetAll(c, &packages)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
+	}
+	if len(packages) > 1 {
+		// just print an error to let admin know
+		c.Errorf("More tha one package for repo: %v", pkg.Repo)
+	}
+
+	if len(packages) > 0 {
+		// update the package and delete
+		oldKey := keys[0]
+		oldPkg := packages[0]
+		oldPkg.Name = pkg.Name
+		oldPkg.Description = pkg.Description
+		oldPkg.IsLibrary = pkg.IsLibrary
+		oldPkg.Category = pkg.Category
+		oldPkg.Updated = time.Now()
+		if _, err = datastore.Put(c, oldKey, oldPkg); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		if err = datastore.Delete(c, key); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+	} else {
+		// accept the new package
+		pkg.Accepted = true
+		if _, err = datastore.Put(c, key, pkg); err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
 	}
 	memcache.Delete(c, pkg.Repo)
 	memcache.Delete(c, ALL_QUERY)
