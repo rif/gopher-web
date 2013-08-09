@@ -11,4 +11,9 @@ angular.module('gopher.services', ['ngResource'])
 	return $resource('/api/pkg', {}, {
 		query: {method: 'GET', params: {repo: 'all'}, isArray: true},
 	});
+})
+.factory('Category', function ($resource) {
+	return $resource('/api/cat', {}, {
+		query: {method: 'GET', isArray: true},
+	});
 });

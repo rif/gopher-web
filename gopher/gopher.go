@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 	"time"
 )
 
@@ -30,6 +31,23 @@ type Package struct {
 type RemoveRequest struct {
 	Repo   string
 	Reason string
+}
+
+type Category struct {
+	Name string
+	Seen int
+}
+
+type Categories []*Category
+
+func (cats Categories) Add(c string) Categories {
+	for _, cat := range cats {
+		if cat.Name == c {
+			cat.Seen += 1
+			return cats
+		}
+	}
+	return append(cats, &Category{c, 1})
 }
 
 func init() {
@@ -68,7 +86,7 @@ func pkg(w http.ResponseWriter, r *http.Request) {
 		} else {
 			jsonResult = item.Value
 		}
-		fmt.Fprint(w, string(jsonResult))
+		w.Write(jsonResult)
 	case "POST":
 		body, err := ioutil.ReadAll(r.Body)
 		if err != nil {
@@ -102,6 +120,7 @@ func pkg(w http.ResponseWriter, r *http.Request) {
 
 func cat(w http.ResponseWriter, r *http.Request) {
 	c := appengine.NewContext(r)
+	w.Header().Set("Content-Type", "application/json")
 	switch r.Method {
 	case "GET":
 		var jsonResult []byte
@@ -112,9 +131,11 @@ func cat(w http.ResponseWriter, r *http.Request) {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
 				return
 			}
-			categories := make(map[string]int)
+			var categories Categories
 			for _, pkg := range packages {
-				categories[pkg.Category] += 1
+				if strings.TrimSpace(pkg.Category) != "" {
+					categories = categories.Add(pkg.Category)
+				}
 			}
 			if jsonResult, err = json.Marshal(categories); err != nil {
 				http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -124,6 +145,6 @@ func cat(w http.ResponseWriter, r *http.Request) {
 		} else {
 			jsonResult = item.Value
 		}
-		fmt.Fprint(w, string(jsonResult))
+		w.Write(jsonResult)
 	}
 }

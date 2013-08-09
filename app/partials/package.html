@@ -1,8 +1,9 @@
-<h3>{{pack.Name}}</h3>
+<h3>{{pack.Name}} <span ng-show="pack.IsLibrary">Library</span></h3>
 <ul class="no-bullet">
 	<li>Repo: <a href="http://{{pack.Repo}}" target="_blank">{{pack.Repo}}</a></li>
 	<li>Description: {{pack.Description}}</li>
 	<li>Documentation: <a href="http://godoc.org/{{pack.Repo}}">godoc</a> or <a href="http://gowalker.org/{{pack.Repo}}">gowalker</a></li>
+	<li>Category: {{pack.Category}}</li>
 </ul>
 <br>
 <br>

@@ -20,7 +20,7 @@
 		<div class="row">
 			<div class="large-12 columns">
 				<label for="islibrary">Is Library?</label><input type="checkbox" id="islibrary" ng-model="pkg.islibrary"/>
-				<input type="text" placeholder="Category" ng-model="pkg.category"/>
+                <input type="text" ng-model="pkg.category" typeahead="cat.Name for cat in categories | filter:$viewValue | limitTo:8">
 			</div>
 		</div>
 		<div>

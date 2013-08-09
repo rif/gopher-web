@@ -126,6 +126,7 @@ func accept(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	memcache.Delete(c, pkg.Repo)
+        memcache.Delete(c, CAT)
 	memcache.Delete(c, ALL_QUERY)
 }
 
@@ -182,6 +183,7 @@ func acceptremoval(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	memcache.Delete(c, repo)
+        memcache.Delete(c, CAT)
 	memcache.Delete(c, ALL_QUERY)
 }
 

@@ -11,12 +11,16 @@ angular.module('gopher.controllers', ['gopher.services'])
                 $scope.pack = pack;
         });
     }])
-    .controller('AddCtrl', ['$scope', 'Package', function ($scope, Package) {
+    .controller('AddCtrl', ['$scope', 'Package', 'Category', function ($scope, Package, Category) {
     	$scope.addPackage = function(pkg){
     		Package.save(pkg, function(response){
                 window.location.assign("#/"); // TODO: some flash thing
     		});
-    	}
+    	};
+        Category.query(function (cats) {
+                $scope.selected = undefined;
+                $scope.categories = cats;
+        });
     }])
     .controller('RemoveCtrl', ['$scope','Package', function ($scope, Package)  {
         $scope.removePackage = function(pkg){
