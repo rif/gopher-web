@@ -1,115 +1,92 @@
 <!DOCTYPE html>
-<!--[if IE 8]>
-<html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en"> <!--<![endif]-->
-
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>Gopher</title>
-        <link rel="stylesheet" href="/css/app.css">
-    </head>
-    <body>
-
-        <div class="row">
-            <div class="large-12 columns">
-                <h2><a href="/admin/">Welcome, {{.user}}!</a> (<a href="{{.url}}">sign out</a>)</h2>
-                <hr/>
-            </div>
+<html ng-app="gopher">
+<head>
+    <title>Gopher Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2><a href="/admin/">Welcome, {{.user}}!</a> (<a href="{{.url}}">sign out</a>)</h2>
+            <hr/>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="large-12 columns">
-                <!-- Grid Example -->
-                <div class="row">
-                    <div class="large-12 columns"> 
-                        <h3>Add/Update</h3>
-                        {{$keys := .keys}}
-                        <table id="package-table">
-                          <tbody>
-                            {{range $index,$package := .pacakges}}
-                            {{$id := index $keys $index}}
-                            <tr>
-                              <td>{{$index}}</td>
-                              <td>{{$package.Name}}</td>
-                              <td><a href="http://{{$package.Repo}}" target="_blank">{{$package.Repo}}</a></td>
-                              <td>{{$package.Description}}</td>
-                              <td>
-                                    <ul class="button-group">
-                                        <li><a href="/admin/accept/?id={{$id.IntID}}" class="small action button">Accept</a></li>
-                                        <li><a href="/admin/reject/?id={{$id.IntID}}" class="small alert action button">Reject</a></li>
-                                    </ul>
-                              </td>
-                            </tr>
-                            {{else}}
-                            <tr><td>No packages to approve!</td></tr>
-                            {{end}}         
-                            </div>
-                          </tbody>
-                        </table>
-                        <h3>Remove</h3>
-                        {{$keys := .removeKeys}}
-                        <table id="package-table">
-                          <tbody>
-                            {{range $index,$removeRequest := .removeRequests}}
-                            {{$id := index $keys $index}}
-                            <tr>
-                              <td>{{$index}}</td>
-                              <td><a href="http://{{$removeRequest.Repo}}" target="_blank">{{$removeRequest.Repo}}</a></td>
-                              <td>{{$removeRequest.Reason}}</td>
-                              <td>
-                                    <ul class="button-group">
-                                        <li><a href="/admin/acceptremoval/?id={{$id.IntID}}&repo={{$removeRequest.Repo}}" class="small action button">Accept</a></li>
-                                        <li><a href="/admin/rejectremoval/?id={{$id.IntID}}" class="small alert action button">Reject</a></li>
-                                    </ul>
-                              </td>
-                            </tr>
-                            {{else}}
-                            <tr><td>No packages to approve!</td></tr>
-                            {{end}}         
-                            </div>
-                          </tbody>
-                        </table>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-12">
+            <h3>Add/Update</h3>
+            {{$keys := .keys}}
+            <table id="package-table" class="table table-condensed table-hover">
+                <tbody>
+                {{range $index,$package := .pacakges}}
+                {{$id := index $keys $index}}
+                <tr>
+                    <td>{{$index}}</td>
+                    <td>{{$package.Name}}</td>
+                    <td><a href="http://{{$package.Repo}}" target="_blank">{{$package.Repo}}</a></td>
+                    <td>{{$package.Description}}</td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="/admin/accept/?id={{$id.IntID}}" class="action btn btn-default btn-sm">Accept</a>
+                            <a href="/admin/reject/?id={{$id.IntID}}" class="action btn btn-danger btn-sm">Reject</a>
+                        </div>
+                    </td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td>No packages to approve!</td>
+                </tr>
+                {{end}}
 
+                </tbody>
+            </table>
         </div>
-        
-        <!-- In production use:
-        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
-        -->
+        <h3>Remove</h3>
+        {{$keys := .removeKeys}}
+        <table id="package-table" class="table table-condensed table-hover">
+            <tbody>
+            {{range $index,$removeRequest := .removeRequests}}
+            {{$id := index $keys $index}}
+            <tr>
+                <td>{{$index}}</td>
+                <td><a href="http://{{$removeRequest.Repo}}" target="_blank">{{$removeRequest.Repo}}</a></td>
+                <td>{{$removeRequest.Reason}}</td>
+                <td>
+                    <ul class="button-group">
+                        <li><a href="/admin/acceptremoval/?id={{$id.IntID}}&repo={{$removeRequest.Repo}}"
+                               class="action btn btn-xs">Accept</a></li>
+                        <li><a href="/admin/rejectremoval/?id={{$id.IntID}}"
+                               class="action btn btn-danger btn-xs">Reject</a></li>
+                    </ul>
+                </td>
+            </tr>
+            {{else}}
+            <tr>
+                <td>No packages to approve!</td>
+            </tr>
+            {{end}}
+            </tbody>
+        </table>
+    </div>
+</div>
 
-        <script>
-            document.write('<script src=' +
-                    ('__proto__' in {} ? '/lib/vendor/zepto' : '/lib/vendor/jquery') +
-                    '.js><\/script>')
-        </script>
+</div>
 
-        <script src="/lib/foundation/foundation.js"></script>
-        <!--<script src="/lib/foundation/foundation.abide.js"></script>
-        <script src="/lib/foundation/foundation.alerts.js"></script>
-        <script src="/lib/foundation/foundation.clearing.js"></script>
-        <script src="/lib/foundation/foundation.cookie.js"></script>
-        <script src="/lib/foundation/foundation.dropdown.js"></script>
-        <script src="/lib/foundation/foundation.forms.js"></script>
-        <script src="/lib/foundation/foundation.interchange.js"></script>
-        <script src="/lib/foundation/foundation.joyride.js"></script>
-        <script src="/lib/foundation/foundation.magellan.js"></script>
-        <script src="/lib/foundation/foundation.orbit.js"></script>
-        <script src="/lib/foundation/foundation.placeholder.js"></script>
-        <script src="/lib/foundation/foundation.reveal.js"></script>
-        <script src="/lib/foundation/foundation.section.js"></script>
-        <script src="/lib/foundation/foundation.tooltips.js"></script>
-        <script src="/lib/foundation/foundation.topbar.js"></script>-->
+<script>
+    document.write('<script src=' +
+            ('__proto__' in {} ? 'lib/vendor/zepto' : 'lib/vendor/jquery') +
+            '.js><\/script>')
+</script>
 
-        <script>
-            $(document).foundation();
-            $('a.action').click(function(){
-                $.get($(this).attr('href'));
-                $(this).parents('tr').fadeOut("fast");
-                return false;
-            });
-        </script>
-    </body>
+<script>
+    $('a.action').click(function () {
+        $.get($(this).attr('href'));
+        $(this).parents('tr').fadeOut("fast");
+        return false;
+    });
+</script>
+</body>
 </html>

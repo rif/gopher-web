@@ -1,20 +1,15 @@
-<form>
+<form name="form" novalidate class="input-form">
 	<fieldset>
 		<legend>Remove package request</legend>
 
-		<div class="row">
-			<div class="large-12 columns">
-				<input type="text" placeholder="Repo path" ng-model="pkg.repo" required/>
-			</div>
+        <div class="form-group">
+				<input type="text" class="form-control"  placeholder="Repo path" ng-model="pkg.repo" required/>
 		</div>
-		<div class="row">
-			<div class="large-12 columns">
-				<input type="text" placeholder="Reason for removal request" ng-model="pkg.reason" required/>
-			</div>
+		<div class="form-group">
+				<input type="text"  class="form-control"  placeholder="Reason for removal request" ng-model="pkg.reason" required/>
 		</div>
 		<div>
-			<button ng-click="removePackage(pkg)">Submit request</button>
-			<span class="alert-box secondary" ng-show="removeResponse !== ''"> {{removeResponse}}</span>
+			<button type="button" class="btn btn-primary pull-right" ng-disabled="form.$invalid" ng-click="removePackage(pkg)">Submit request</button>
 		</div>
 	</fieldset>
 </form>

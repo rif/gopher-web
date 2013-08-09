@@ -1,8 +1,8 @@
 <h3>Packages</h3>
 
-<input type="text" id="filter" placeholder="Search for package" ng-model="packageFilter"/>
+<input type="text" class="form-control" id="filter" placeholder="Search for package" ng-model="packageFilter"/>
 
-<table id="package-table">
+<table id="package-table" class="table table-hover table-condensed">
   <tbody>
     <tr ng-repeat="package in packages| filter:packageFilter | limitTo: 50">
       <td><a href="#/package/{{package.Repo}}">{{package.Name}}</a></td>

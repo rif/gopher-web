@@ -1,30 +1,24 @@
-<form>
-	<fieldset>
-		<legend>Add package request</legend>
-		
-		<div class="row">
-			<div class="large-12 columns">
-				<input type="text" placeholder="Name" ng-model="pkg.name" required/>
-			</div>
-		</div>
-		<div class="row">
-			<div class="large-12 columns">
-				<input type="text" placeholder="Repo path" ng-model="pkg.repo" required/>
-			</div>
-		</div>
-		<div class="row">
-			<div class="large-12 columns">
-				<input type="text" placeholder="Description" ng-model="pkg.description" required/>
-			</div>
-		</div>
-		<div class="row">
-			<div class="large-12 columns">
-				<label for="islibrary">Is Library?</label><input type="checkbox" id="islibrary" ng-model="pkg.islibrary"/>
-                <input type="text" ng-model="pkg.category" typeahead="cat.Name for cat in categories | filter:$viewValue | limitTo:8">
-			</div>
-		</div>
-		<div>
-			<button ng-click="addPackage(pkg)">Sumbit add request</button>
-		</div>
-	</fieldset>
+<form name="form" novalidate class="input-form">
+    <fieldset>
+        <legend>Add package request</legend>
+
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Name" ng-model="pkg.name" required/>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Repo path" ng-model="pkg.repo" required/>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Description" ng-model="pkg.description" required/>
+        </div>
+        <div class="form-group">
+            <div class="checkbox">
+                <label for="islibrary">Is Library?</label><input type="checkbox" id="islibrary"
+                                                                 ng-model="pkg.islibrary"/>
+            </div>
+            <input class="form-control" type="text" ng-model="pkg.category" placeholder="Category"
+                   typeahead="cat.Name for cat in categories | filter:$viewValue | limitTo:8">
+        </div>
+                <button type="button" class="btn btn-primary pull-right" ng-disabled="form.$invalid" ng-click="addPackage(pkg)">Sumbit add request</button>
+    </fieldset>
 </form>

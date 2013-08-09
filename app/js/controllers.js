@@ -18,14 +18,13 @@ angular.module('gopher.controllers', ['gopher.services'])
     		});
     	};
         Category.query(function (cats) {
-                $scope.selected = undefined;
                 $scope.categories = cats;
         });
     }])
     .controller('RemoveCtrl', ['$scope','Package', function ($scope, Package)  {
         $scope.removePackage = function(pkg){
             Package.remove(pkg, function(response){
-                $scope.removeResponse = response;
+                window.location.assign("#/"); // TODO: some flash thing
             });
         }
     }]);
