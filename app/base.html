@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-12">
+        <div class="col-lg-12">
             <h2><a href="/admin/">Welcome, {{.user}}!</a> (<a href="{{.url}}">sign out</a>)</h2>
             <hr/>
         </div>
@@ -28,6 +28,8 @@
                     <td>{{$package.Name}}</td>
                     <td><a href="http://{{$package.Repo}}" target="_blank">{{$package.Repo}}</a></td>
                     <td>{{$package.Description}}</td>
+                    <td>{{$package.IsLibrary}}</td>
+                    <td>{{$package.Category}}</td>
                     <td>
                         <div class="btn-group">
                             <a href="/admin/accept/?id={{$id.IntID}}" class="action btn btn-default btn-sm">Accept</a>
@@ -44,32 +46,36 @@
                 </tbody>
             </table>
         </div>
-        <h3>Remove</h3>
-        {{$keys := .removeKeys}}
-        <table id="package-table" class="table table-condensed table-hover">
-            <tbody>
-            {{range $index,$removeRequest := .removeRequests}}
-            {{$id := index $keys $index}}
-            <tr>
-                <td>{{$index}}</td>
-                <td><a href="http://{{$removeRequest.Repo}}" target="_blank">{{$removeRequest.Repo}}</a></td>
-                <td>{{$removeRequest.Reason}}</td>
-                <td>
-                    <ul class="button-group">
-                        <li><a href="/admin/acceptremoval/?id={{$id.IntID}}&repo={{$removeRequest.Repo}}"
-                               class="action btn btn-xs">Accept</a></li>
-                        <li><a href="/admin/rejectremoval/?id={{$id.IntID}}"
-                               class="action btn btn-danger btn-xs">Reject</a></li>
-                    </ul>
-                </td>
-            </tr>
-            {{else}}
-            <tr>
-                <td>No packages to approve!</td>
-            </tr>
-            {{end}}
-            </tbody>
-        </table>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <h3>Remove</h3>
+            {{$keys := .removeKeys}}
+            <table id="package-table" class="table table-condensed table-hover">
+                <tbody>
+                {{range $index,$removeRequest := .removeRequests}}
+                {{$id := index $keys $index}}
+                <tr>
+                    <td>{{$index}}</td>
+                    <td><a href="http://{{$removeRequest.Repo}}" target="_blank">{{$removeRequest.Repo}}</a></td>
+                    <td>{{$removeRequest.Reason}}</td>
+                    <td>
+                        <div class="btn-group">
+                            <a href="/admin/acceptremoval/?id={{$id.IntID}}&repo={{$removeRequest.Repo}}"
+                               class="action btn btn-default btn-xs">Accept</a>
+                            <a href="/admin/rejectremoval/?id={{$id.IntID}}"
+                               class="action btn btn-danger btn-xs">Reject</a>
+                        </div>
+                    </td>
+                </tr>
+                {{else}}
+                <tr>
+                    <td>No packages to approve!</td>
+                </tr>
+                {{end}}
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 
@@ -77,7 +83,7 @@
 
 <script>
     document.write('<script src=' +
-            ('__proto__' in {} ? 'lib/vendor/zepto' : 'lib/vendor/jquery') +
+            ('__proto__' in {} ? '/lib/vendor/zepto' : '/lib/vendor/jquery') +
             '.js><\/script>')
 </script>
 
