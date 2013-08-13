@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"strings"
 	"time"
 )
@@ -95,7 +96,13 @@ func pkg(w http.ResponseWriter, r *http.Request) {
 		}
 		defer r.Body.Close()
 		p := &Package{Added: time.Now(), Updated: time.Now()}
-		if err := json.Unmarshal(body, p); err != nil {
+		json_data, err := url.QueryUnescape(string(body))
+		if err != nil {
+			http.Error(w, err.Error(), http.StatusInternalServerError)
+			return
+		}
+		if err := json.Unmarshal([]byte(json_data), p); err != nil {
+			c.Errorf("unmarshal error: %v", err)
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}

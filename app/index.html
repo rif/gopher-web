@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html ng-app="gopher">
+<html data-ng-app="gopher">
 <head>
+    <meta charset="utf-8" />
     <title>Gopher</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
@@ -15,7 +16,7 @@
             <!-- Grid Example -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div ng-view></div>
+                    <div data-ng-view></div>
                 </div>
             </div>
         </div>
@@ -32,7 +33,6 @@
             <div class="radius secondary label">
                 go get github.com/rif/gopher
             </div>
-            </a>
 
             <h4>Other Resources</h4>
             <ul class="no-bullet">
@@ -43,9 +43,10 @@
         </div>
     </div>
 </div>
-<a href="https://github.com/rif/gopher-web"><img style="position: absolute; top: 0; right: 0; border: 0;"
-                                                 src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
-                                                 alt="Fork me on GitHub"></a>
+<a href="https://github.com/rif/gopher-web">
+    <img style="position: absolute; top: 0; right: 0; border: 0;"
+        src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub">
+</a>
 
 <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>-->
 <!--script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script-->

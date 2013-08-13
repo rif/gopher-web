@@ -17,7 +17,7 @@
                                                                  ng-model="pkg.islibrary"/>
             </div>
             <input class="form-control" type="text" ng-model="pkg.category" placeholder="Category"
-                   typeahead="cat.Name for cat in categories | filter:$viewValue | limitTo:8">
+                   typeahead="cat.Name for cat in categories | filter:$viewValue | limitTo:30">
         </div>
                 <button type="button" class="btn btn-primary pull-right" ng-disabled="form.$invalid" ng-click="addPackage(pkg)">Sumbit add request</button>
     </fieldset>

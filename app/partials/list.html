@@ -5,7 +5,7 @@
 <br>
 <table id="package-table" class="table table-hover table-condensed">
   <tbody>
-    <tr ng-repeat="package in packages| filter:packageFilter | limitTo: 50">
+    <tr ng-repeat="package in packages| filter:packageFilter">
       <td><a href="#/package/{{package.Repo}}">{{package.Name}}</a></td>
       <td><a href="http://{{package.Repo}}" target="_blank">{{package.Repo}}</a></td>
       <td>{{package.Description}}</td>
